@@ -25,7 +25,7 @@ public class MainWindow {
         janela.setLocationRelativeTo(null);
         janela.setTitle("Main");
         janela.setSize(500, 150);
-        janela.setLocation(1200, 0);
+        janela.setLocation(401, 151);
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -50,7 +50,7 @@ public class MainWindow {
         janela.setLocationRelativeTo(null);
         janela.setTitle("Main");
         janela.setSize(500, 150);
-        janela.setLocation(1200, 0);
+        janela.setLocation(401, 151);
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

@@ -29,7 +29,7 @@ public class Porta implements Runnable {
         janela.setLocationRelativeTo(null);
         janela.setTitle("Porta");
         janela.setSize(400, 150);
-        janela.setLocation(800, 0);
+        janela.setLocation(0, 151);
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
