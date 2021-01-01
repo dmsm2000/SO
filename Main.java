@@ -41,17 +41,15 @@ public class Main {
 
                         String tempKey = "";
 
-                        while ("".equals(tempKey)) {
+                        while (!"F".equals(tempKey) && !"C".equals(tempKey)) {
                             semMT.acquire();
                             tempKey = buffer.getKey();
                         }
 
                         if ("F".equals(tempKey)) {
 
-                            float troco = moedeiro.calculateChange();
-
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Devolvendo: " + String.valueOf(troco));
+                                    "Devolvendo: " + String.valueOf(moedeiro.calculateChange()));
 
                             moedeiro.cleanMoedeiro();
                             porta.openOrCloseDoor();
@@ -75,6 +73,7 @@ public class Main {
                             buffer.setModo(Modos.Usar);
                             buffer.setEstado(Estado.Livre);
                             MainWindow.updateLabels(buffer);
+
                         } else if ("C".equals(tempKey)) {
                             porta.openOrCloseDoor();
                             moedeiro.cleanMoedeiro();
@@ -157,7 +156,9 @@ public class Main {
 
                 case "C": {
                     if (buffer.getAmmount() > 0) {
-                        porta.openOrCloseDoor();
+                        if (buffer.isDoorOpen()) {
+                            porta.openOrCloseDoor();
+                        }
                         moedeiro.cleanMoedeiro();
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                 "Operacao cancelada, dinheiro devolvido.");

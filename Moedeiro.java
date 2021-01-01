@@ -27,17 +27,20 @@ public class Moedeiro implements ActionListener, Runnable {
         JButton botao5 = new JButton("5");
         JButton botao10 = new JButton("10");
         JButton botaoOK = new JButton("OK");
+        JButton botaoClear = new JButton("Limpar");
         this.inserido = new JLabel("Inserido: ");
 
         botao1.addActionListener(this);
         botao5.addActionListener(this);
         botao10.addActionListener(this);
         botaoOK.addActionListener(this);
+        botaoClear.addActionListener(this);
 
         janela.add(botao1);
         janela.add(botao5);
         janela.add(botao10);
         janela.add(botaoOK);
+        janela.add(botaoClear);
         janela.add(this.inserido);
 
         janela.pack();
@@ -67,13 +70,19 @@ public class Moedeiro implements ActionListener, Runnable {
                 this.inserido.setText("Inserido: " + this.tempAmmount);
                 break;
             case "OK":
-                try {
-                    this.buffer.setAmmount(tempAmmount);
-                } catch (IOException e1) {
+                if (buffer.getEstado() == Estado.Livre && !buffer.isDoorOpen() && buffer.getModo() == Modos.Usar) {
+                    try {
+                        this.buffer.setAmmount(tempAmmount);
+                    } catch (IOException e1) {
+                    }
+                    this.tempAmmount = 0;
+                    this.inserido.setText("Inserido: " + this.tempAmmount);
+                    MainWindow.updateLabels(buffer);
                 }
+                break;
+            case "Limpar":
                 this.tempAmmount = 0;
                 this.inserido.setText("Inserido: " + this.tempAmmount);
-                MainWindow.updateLabels(buffer);
                 break;
         }
 
@@ -81,7 +90,6 @@ public class Moedeiro implements ActionListener, Runnable {
 
     public float calculateChange() throws InterruptedException, IOException {
         float change = this.buffer.getChange();
-        semMM.release();
         return change;
     }
 
