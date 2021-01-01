@@ -103,29 +103,37 @@ public class Main {
                 }
 
                 case "a": {
-                    buffer.setChave(Chave.Aberta);
-                    buffer.setEstado(Estado.Ocupada);
-                    buffer.setModo(Modos.Manutencao);
-                    moedeiro.cleanMoedeiro();
-                    porta.openOrCloseDoor();
-                    MainWindow.updateLabels(buffer);
+                    if (!buffer.isDoorOpen()) {
+                        buffer.setChave(Chave.Aberta);
+                        buffer.setEstado(Estado.Ocupada);
+                        buffer.setModo(Modos.Manutencao);
+                        moedeiro.cleanMoedeiro();
+                        porta.openOrCloseDoor();
+                        MainWindow.updateLabels(buffer);
+                    }
                     break;
                 }
                 case "f": {
-                    buffer.setChave(Chave.Fechada);
-                    buffer.setEstado(Estado.Ocupada);
-                    buffer.setModo(Modos.Manutencao);
-                    moedeiro.cleanMoedeiro();
-                    porta.openOrCloseDoor();
-                    MainWindow.updateLabels(buffer);
+                    if (buffer.isDoorOpen()) {
+                        buffer.setChave(Chave.Fechada);
+                        buffer.setEstado(Estado.Ocupada);
+                        buffer.setModo(Modos.Manutencao);
+                        moedeiro.cleanMoedeiro();
+                        porta.openOrCloseDoor();
+                        MainWindow.updateLabels(buffer);
+                    }
                     break;
                 }
 
                 case "R": {
-                    if (buffer.isDoorOpen()) {
+                    if (buffer.isDoorOpen() && buffer.getModo() != Modos.Manutencao) {
                         JOptionPane.showMessageDialog(MainWindow.getJanela(), "Cancele a operacao em curso....");
                     } else {
                         buffer.reset();
+                        if (buffer.isDoorOpen()) {
+                            porta.openOrCloseDoor();
+                        }
+                        MainWindow.updateLabels(buffer);
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                 "O sistema foi reiniciado, pronto para utilizacao.");
                     }

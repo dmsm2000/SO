@@ -165,7 +165,6 @@ public class Buffer {
         this.setEstado(Estado.Livre);
         this.setModo(Modos.Usar);
         this.cleanMoedeiro();
-        this.setDoorOpen(false);
         this.setChave(Chave.Neutra);
         this.setKey("");
 

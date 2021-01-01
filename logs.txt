@@ -1,2 +1,26 @@
-01/01/2021/16:24:24 - Sistema iniciou
-01/01/2021/16:24:31 - 16.0 € inseridos
+01/01/2021/16:45:26 - Sistema iniciou
+01/01/2021/16:45:28 - a pressionada
+01/01/2021/16:45:28 - Chave alterada para: Aberta
+01/01/2021/16:45:28 - Estado alterado para: Ocupada
+01/01/2021/16:45:28 - Modo alterado para: Manutencao
+01/01/2021/16:45:28 - 0.0 € inseridos
+01/01/2021/16:45:28 - Moedeiro limpo
+01/01/2021/16:45:28 - Abriu
+01/01/2021/16:45:29 - a pressionada
+01/01/2021/16:45:29 - a pressionada
+01/01/2021/16:45:29 - a pressionada
+01/01/2021/16:45:30 - a pressionada
+01/01/2021/16:45:30 - a pressionada
+01/01/2021/16:45:30 - a pressionada
+01/01/2021/16:45:30 - a pressionada
+01/01/2021/16:45:31 - f pressionada
+01/01/2021/16:45:31 - Chave alterada para: Fechada
+01/01/2021/16:45:31 - Estado alterado para: Ocupada
+01/01/2021/16:45:31 - Modo alterado para: Manutencao
+01/01/2021/16:45:31 - 0.0 € inseridos
+01/01/2021/16:45:31 - Moedeiro limpo
+01/01/2021/16:45:31 - Fechou a porta
+01/01/2021/16:45:32 - f pressionada
+01/01/2021/16:45:32 - f pressionada
+01/01/2021/16:45:32 - f pressionada
+01/01/2021/16:45:32 - f pressionada
