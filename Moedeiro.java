@@ -12,6 +12,7 @@ public class Moedeiro implements ActionListener, Runnable {
     private Semaphore semMM;
     private Buffer buffer;
     private float tempAmmount;
+    private JLabel inserido;
 
     public Moedeiro(Semaphore semMM, Buffer buffer) {
         this.semMM = semMM;
@@ -26,6 +27,7 @@ public class Moedeiro implements ActionListener, Runnable {
         JButton botao5 = new JButton("5");
         JButton botao10 = new JButton("10");
         JButton botaoOK = new JButton("OK");
+        this.inserido = new JLabel("Inserido: ");
 
         botao1.addActionListener(this);
         botao5.addActionListener(this);
@@ -36,6 +38,7 @@ public class Moedeiro implements ActionListener, Runnable {
         janela.add(botao5);
         janela.add(botao10);
         janela.add(botaoOK);
+        janela.add(this.inserido);
 
         janela.pack();
         janela.setLocationRelativeTo(null);
@@ -53,12 +56,15 @@ public class Moedeiro implements ActionListener, Runnable {
         switch (action) {
             case "1":
                 this.tempAmmount += 1;
+                this.inserido.setText("Inserido: " + this.tempAmmount);
                 break;
             case "5":
                 this.tempAmmount += 5;
+                this.inserido.setText("Inserido: " + this.tempAmmount);
                 break;
             case "10":
                 this.tempAmmount += 10;
+                this.inserido.setText("Inserido: " + this.tempAmmount);
                 break;
             case "OK":
                 try {
@@ -66,6 +72,7 @@ public class Moedeiro implements ActionListener, Runnable {
                 } catch (IOException e1) {
                 }
                 this.tempAmmount = 0;
+                this.inserido.setText("Inserido: " + this.tempAmmount);
                 MainWindow.updateLabels(buffer);
                 break;
         }

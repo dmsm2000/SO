@@ -1,1 +1,2 @@
-01/01/2021/16:10:27 - Sistema reiniciado....
+01/01/2021/16:24:24 - Sistema iniciou
+01/01/2021/16:24:31 - 16.0 € inseridos
