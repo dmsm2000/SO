@@ -1,9 +1,1 @@
-01/01/2021/17:23:37 - Sistema iniciou
-01/01/2021/17:23:39 - 10.0 € inseridos
-01/01/2021/17:23:39 - A pressionada
-01/01/2021/17:23:39 - Abriu
-01/01/2021/17:23:44 - F pressionada
-01/01/2021/17:23:45 - 0.0 € inseridos
-01/01/2021/17:23:45 - Moedeiro limpo
-01/01/2021/17:23:45 - Fechou a porta
-01/01/2021/17:23:45 - Estado alterado para: Ocupada
+01/01/2021/17:27:37 - Sistema iniciou

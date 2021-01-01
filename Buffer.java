@@ -138,7 +138,7 @@ public class Buffer {
         }
         this.cleanMoedeiro();
         JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                "A desinfetar, aguarde " + String.valueOf(this.getTimeToClean()) + " milisegundos");
+                "A desinfetar, aguarde " + String.valueOf(this.getTimeToClean() / 1000) + " segundos");
         Thread.sleep(this.getTimeToClean());
         JOptionPane.showMessageDialog(MainWindow.getJanela(), "Casa de banho pronta a usar!");
     }

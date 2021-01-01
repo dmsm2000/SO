@@ -14,9 +14,9 @@ public class MainWindow {
 
         String[] colunas = { "Estado", "Modo", "Chave", "inserido", "Preço", "Tempo de limpeza" };
 
-        Object[][] dados = { { "Estado", "Modo", "Chave", "Inserido", "Preco", "Tempo" },
+        Object[][] dados = { { "Estado", "Modo", "Chave", "Inserido", "Preco", "Tempo (s)" },
                 { buffer.getEstado().toString(), buffer.getModo().toString(), buffer.getChave().toString(),
-                        buffer.getAmmount(), buffer.getPrice(), buffer.getTimeToClean() } };
+                        buffer.getAmmount(), buffer.getPrice(), buffer.getTimeToClean() / 1000 } };
 
         JTable tabela = new JTable(dados, colunas);
 
