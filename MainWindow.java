@@ -12,7 +12,7 @@ public class MainWindow {
 
         janela.getContentPane().setLayout(new FlowLayout());
 
-        String[] colunas = { "Estado", "Modo", "Chave", "inserido", "Preço", "Tempo de limpeza" };
+        String[] colunas = { "Estado", "Modo", "Chave", "inserido", "Preço", "Tempo (s)" };
 
         Object[][] dados = { { "Estado", "Modo", "Chave", "Inserido", "Preco", "Tempo (s)" },
                 { buffer.getEstado().toString(), buffer.getModo().toString(), buffer.getChave().toString(),
@@ -37,11 +37,11 @@ public class MainWindow {
 
         janela.getContentPane().setLayout(new FlowLayout());
 
-        String[] colunas = { "Estado", "Modo", "Chave", "Dinheiro inserido", "Preço", "Tempo de limpeza" };
+        String[] colunas = { "Estado", "Modo", "Chave", "inserido", "Preço", "Tempo (s)" };
 
-        Object[][] dados = { { "Estado", "Modo", "Chave", "Inserido", "Preco", "Tempo" },
+        Object[][] dados = { { "Estado", "Modo", "Chave", "Inserido", "Preco", "Tempo (s)" },
                 { buffer.getEstado().toString(), buffer.getModo().toString(), buffer.getChave().toString(),
-                        buffer.getAmmount(), buffer.getPrice(), buffer.getTimeToClean() } };
+                        buffer.getAmmount(), buffer.getPrice(), buffer.getTimeToClean() / 1000 } };
 
         JTable tabela = new JTable(dados, colunas);
 

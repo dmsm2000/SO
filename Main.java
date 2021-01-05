@@ -113,7 +113,10 @@ public class Main {
                     buffer.setChave(Chave.Aberta);
                     buffer.setEstado(Estado.Ocupada);
                     buffer.setModo(Modos.Manutencao);
-                    moedeiro.cleanMoedeiro();
+                    if (buffer.getAmmount() > 0) {
+                        JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                        moedeiro.cleanMoedeiro();
+                    }
                     if (!buffer.isDoorOpen()) {
                         porta.openOrCloseDoor();
                     }
@@ -124,7 +127,10 @@ public class Main {
                     buffer.setChave(Chave.Fechada);
                     buffer.setEstado(Estado.Ocupada);
                     buffer.setModo(Modos.Manutencao);
-                    moedeiro.cleanMoedeiro();
+                    if (buffer.getAmmount() > 0) {
+                        JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                        moedeiro.cleanMoedeiro();
+                    }
                     if (buffer.isDoorOpen()) {
                         porta.openOrCloseDoor();
                         semMP.acquire();
@@ -151,6 +157,10 @@ public class Main {
 
                 case "L": {
                     if (buffer.getEstado() == Estado.Livre && buffer.getModo() == Modos.Usar && !buffer.isDoorOpen()) {
+                        if (buffer.getAmmount() > 0) {
+                            moedeiro.cleanMoedeiro();
+                            JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                        }
                         buffer.setEstado(Estado.Ocupada);
                         buffer.setModo(Modos.Desinfetar);
                         MainWindow.updateLabels(buffer);

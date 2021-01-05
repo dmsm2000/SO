@@ -72,7 +72,7 @@ public class Moedeiro implements ActionListener, Runnable {
             case "OK":
                 if (buffer.getEstado() == Estado.Livre && !buffer.isDoorOpen() && buffer.getModo() == Modos.Usar) {
                     try {
-                        this.buffer.setAmmount(tempAmmount);
+                        this.buffer.setAmmount(tempAmmount + buffer.getAmmount());
                         semMM.release();
                     } catch (IOException e1) {
                     }

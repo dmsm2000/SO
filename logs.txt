@@ -1,9 +1,10 @@
-05/01/2021/15:21:02 - Sistema iniciou
-05/01/2021/15:21:04 - 10.0 € inseridos
-05/01/2021/15:21:04 - A pressionada
-05/01/2021/15:21:04 - Abriu
-05/01/2021/15:21:05 - F pressionada
-05/01/2021/15:21:06 - 0.0 € inseridos
-05/01/2021/15:21:06 - Moedeiro limpo
-05/01/2021/15:21:06 - Fechou a porta
-05/01/2021/15:21:06 - Estado alterado para: Ocupada
+05/01/2021/17:51:25 - Sistema iniciou
+05/01/2021/17:51:28 - 10.0 € inseridos
+05/01/2021/17:51:29 - 20.0 € inseridos
+05/01/2021/17:51:30 - 30.0 € inseridos
+05/01/2021/17:51:32 - 30.0 € inseridos
+05/01/2021/17:51:33 - 40.0 € inseridos
+05/01/2021/17:51:35 - 50.0 € inseridos
+05/01/2021/17:51:38 - C pressionada
+05/01/2021/17:51:38 - 0.0 € inseridos
+05/01/2021/17:51:38 - Moedeiro limpo

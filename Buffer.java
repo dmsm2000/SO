@@ -132,11 +132,6 @@ public class Buffer {
     }
 
     public void clean() throws InterruptedException, IOException {
-        if (this.ammount > 0) {
-            this.cleanMoedeiro();
-            JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
-        }
-        this.cleanMoedeiro();
         JOptionPane.showMessageDialog(MainWindow.getJanela(),
                 "A desinfetar, aguarde " + String.valueOf(this.getTimeToClean() / 1000) + " segundos");
         Thread.sleep(this.getTimeToClean());
