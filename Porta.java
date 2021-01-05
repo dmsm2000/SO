@@ -37,6 +37,7 @@ public class Porta implements Runnable {
     public void openOrCloseDoor() throws InterruptedException, IOException {
         this.buffer.openOrCloseDoor();
         this.label.setText(buffer.isDoorOpen() ? "Aberta" : "Fechada");
+        semMP.release();
     }
 
     @Override

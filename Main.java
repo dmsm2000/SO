@@ -8,11 +8,11 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Semaphore semMT = new Semaphore(0);
         Semaphore semMM = new Semaphore(0);
-        Semaphore semMP = new Semaphore(1);
+        Semaphore semMP = new Semaphore(0);
         Buffer buffer = new Buffer("config");
 
         Teclado teclado = new Teclado(semMT, buffer);
-        Porta porta = new Porta(semMT, buffer);
+        Porta porta = new Porta(semMP, buffer);
         Moedeiro moedeiro = new Moedeiro(semMM, buffer);
 
         Thread tt = new Thread(teclado);
@@ -41,6 +41,7 @@ public class Main {
                             && buffer.getEstado() == Estado.Livre && buffer.getChave() == Chave.Neutra) {
 
                         porta.openOrCloseDoor();
+                        semMP.acquire();
 
                         String tempKey = "";
 
@@ -56,6 +57,7 @@ public class Main {
 
                             moedeiro.cleanMoedeiro();
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                             buffer.setEstado(Estado.Ocupada);
 
                             MainWindow.updateLabels(buffer);
@@ -66,9 +68,11 @@ public class Main {
                             }
 
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(), "5 segundos ate a porta fechar...");
                             Thread.sleep(5000);
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                             buffer.setEstado(Estado.Ocupada);
                             buffer.setModo(Modos.Desinfetar);
                             MainWindow.updateLabels(buffer);
@@ -79,6 +83,7 @@ public class Main {
 
                         } else if ("C".equals(tempKey)) {
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                             moedeiro.cleanMoedeiro();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                     "A devolver o dinheiro, operacao cancelada...");
@@ -122,6 +127,7 @@ public class Main {
                     moedeiro.cleanMoedeiro();
                     if (buffer.isDoorOpen()) {
                         porta.openOrCloseDoor();
+                        semMP.acquire();
                     }
                     MainWindow.updateLabels(buffer);
                     break;
@@ -134,6 +140,7 @@ public class Main {
                         buffer.reset();
                         if (buffer.isDoorOpen()) {
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                         }
                         MainWindow.updateLabels(buffer);
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),
@@ -161,6 +168,7 @@ public class Main {
                     if (buffer.getAmmount() > 0) {
                         if (buffer.isDoorOpen()) {
                             porta.openOrCloseDoor();
+                            semMP.acquire();
                         }
                         moedeiro.cleanMoedeiro();
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),

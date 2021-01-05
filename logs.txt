@@ -1,22 +1,9 @@
-05/01/2021/14:59:39 - Sistema iniciou
-05/01/2021/14:59:43 - 5.0 € inseridos
-05/01/2021/14:59:45 - A pressionada
-05/01/2021/14:59:46 - 0.0 € inseridos
-05/01/2021/14:59:46 - Moedeiro limpo
-05/01/2021/14:59:49 - 10.0 € inseridos
-05/01/2021/14:59:50 - A pressionada
-05/01/2021/14:59:50 - Abriu
-05/01/2021/14:59:51 - F pressionada
-05/01/2021/14:59:52 - 0.0 € inseridos
-05/01/2021/14:59:52 - Moedeiro limpo
-05/01/2021/14:59:52 - Fechou a porta
-05/01/2021/14:59:52 - Estado alterado para: Ocupada
-05/01/2021/15:00:01 - A pressionada
-05/01/2021/15:00:01 - Abriu
-05/01/2021/15:00:07 - Fechou a porta
-05/01/2021/15:00:07 - Estado alterado para: Ocupada
-05/01/2021/15:00:07 - Modo alterado para: Desinfetar
-05/01/2021/15:00:07 - 0.0 € inseridos
-05/01/2021/15:00:07 - Moedeiro limpo
-05/01/2021/15:00:12 - Modo alterado para: Usar
-05/01/2021/15:00:12 - Estado alterado para: Livre
+05/01/2021/15:21:02 - Sistema iniciou
+05/01/2021/15:21:04 - 10.0 € inseridos
+05/01/2021/15:21:04 - A pressionada
+05/01/2021/15:21:04 - Abriu
+05/01/2021/15:21:05 - F pressionada
+05/01/2021/15:21:06 - 0.0 € inseridos
+05/01/2021/15:21:06 - Moedeiro limpo
+05/01/2021/15:21:06 - Fechou a porta
+05/01/2021/15:21:06 - Estado alterado para: Ocupada
