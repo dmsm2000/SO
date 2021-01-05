@@ -43,8 +43,8 @@ public class Teclado implements ActionListener, Runnable {
         janela.pack();
         janela.setLocationRelativeTo(null);
         janela.setTitle("Teclado");
-        janela.setSize(400, 150);
-        janela.setLocation(400, 0);
+        janela.setSize(500, 150);
+        janela.setLocation(300, 0);
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

@@ -46,7 +46,7 @@ public class Moedeiro implements ActionListener, Runnable {
         janela.pack();
         janela.setLocationRelativeTo(null);
         janela.setTitle("Moedeiro");
-        janela.setSize(400, 150);
+        janela.setSize(300, 150);
         janela.setLocation(0, 0);
         janela.setVisible(true);
         janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,6 +73,7 @@ public class Moedeiro implements ActionListener, Runnable {
                 if (buffer.getEstado() == Estado.Livre && !buffer.isDoorOpen() && buffer.getModo() == Modos.Usar) {
                     try {
                         this.buffer.setAmmount(tempAmmount);
+                        semMM.release();
                     } catch (IOException e1) {
                     }
                     this.tempAmmount = 0;

@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Semaphore semMT = new Semaphore(0);
-        Semaphore semMM = new Semaphore(1);
+        Semaphore semMM = new Semaphore(0);
         Semaphore semMP = new Semaphore(1);
         Buffer buffer = new Buffer("config");
 
@@ -34,6 +34,9 @@ public class Main {
 
             switch (botao) {
                 case "A": {
+
+                    semMM.acquire();
+
                     if (buffer.getAmmount() >= buffer.getPrice() && buffer.getModo() == Modos.Usar
                             && buffer.getEstado() == Estado.Livre && buffer.getChave() == Chave.Neutra) {
 
@@ -102,25 +105,25 @@ public class Main {
                 }
 
                 case "a": {
+                    buffer.setChave(Chave.Aberta);
+                    buffer.setEstado(Estado.Ocupada);
+                    buffer.setModo(Modos.Manutencao);
+                    moedeiro.cleanMoedeiro();
                     if (!buffer.isDoorOpen()) {
-                        buffer.setChave(Chave.Aberta);
-                        buffer.setEstado(Estado.Ocupada);
-                        buffer.setModo(Modos.Manutencao);
-                        moedeiro.cleanMoedeiro();
                         porta.openOrCloseDoor();
-                        MainWindow.updateLabels(buffer);
                     }
+                    MainWindow.updateLabels(buffer);
                     break;
                 }
                 case "f": {
+                    buffer.setChave(Chave.Fechada);
+                    buffer.setEstado(Estado.Ocupada);
+                    buffer.setModo(Modos.Manutencao);
+                    moedeiro.cleanMoedeiro();
                     if (buffer.isDoorOpen()) {
-                        buffer.setChave(Chave.Fechada);
-                        buffer.setEstado(Estado.Ocupada);
-                        buffer.setModo(Modos.Manutencao);
-                        moedeiro.cleanMoedeiro();
                         porta.openOrCloseDoor();
-                        MainWindow.updateLabels(buffer);
                     }
+                    MainWindow.updateLabels(buffer);
                     break;
                 }
 
