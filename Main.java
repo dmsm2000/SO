@@ -28,6 +28,7 @@ public class Main {
         Log.writeLog("Sistema iniciou", false);
 
         while (true) {
+
             semMT.acquire();
 
             String botao = buffer.getKey();
@@ -35,13 +36,10 @@ public class Main {
             switch (botao) {
                 case "A": {
 
-                    semMM.acquire();
-
                     if (buffer.getAmmount() >= buffer.getPrice() && buffer.getModo() == Modos.Usar
                             && buffer.getEstado() == Estado.Livre && buffer.getChave() == Chave.Neutra) {
 
-                        porta.openOrCloseDoor();
-                        semMP.acquire();
+                        semMP.release();
 
                         String tempKey = "";
 
@@ -53,11 +51,10 @@ public class Main {
                         if ("F".equals(tempKey)) {
 
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Devolvendo: " + String.valueOf(moedeiro.calculateChange()));
+                                    "Devolvendo: " + String.valueOf(buffer.getChange()));
 
-                            moedeiro.cleanMoedeiro();
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
+                            buffer.cleanMoedeiro();
+                            semMP.release();
                             buffer.setEstado(Estado.Ocupada);
 
                             MainWindow.updateLabels(buffer);
@@ -67,12 +64,10 @@ public class Main {
                                 tempKey = buffer.getKey();
                             }
 
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
+                            semMP.release();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(), "5 segundos ate a porta fechar...");
                             Thread.sleep(5000);
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
+                            semMP.release();
                             buffer.setEstado(Estado.Ocupada);
                             buffer.setModo(Modos.Desinfetar);
                             MainWindow.updateLabels(buffer);
@@ -82,9 +77,8 @@ public class Main {
                             MainWindow.updateLabels(buffer);
 
                         } else if ("C".equals(tempKey)) {
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
-                            moedeiro.cleanMoedeiro();
+                            semMP.release();
+                            buffer.cleanMoedeiro();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                     "A devolver o dinheiro, operacao cancelada...");
                             MainWindow.updateLabels(buffer);
@@ -103,7 +97,7 @@ public class Main {
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                     "Em manutencao, devolvendo dinheiro.");
                         }
-                        moedeiro.cleanMoedeiro();
+                        buffer.cleanMoedeiro();
                         MainWindow.updateLabels(buffer);
                     }
                     break;
@@ -115,10 +109,10 @@ public class Main {
                     buffer.setModo(Modos.Manutencao);
                     if (buffer.getAmmount() > 0) {
                         JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
-                        moedeiro.cleanMoedeiro();
+                        buffer.cleanMoedeiro();
                     }
                     if (!buffer.isDoorOpen()) {
-                        porta.openOrCloseDoor();
+                        semMP.release();
                     }
                     MainWindow.updateLabels(buffer);
                     break;
@@ -129,11 +123,10 @@ public class Main {
                     buffer.setModo(Modos.Manutencao);
                     if (buffer.getAmmount() > 0) {
                         JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
-                        moedeiro.cleanMoedeiro();
+                        buffer.cleanMoedeiro();
                     }
                     if (buffer.isDoorOpen()) {
-                        porta.openOrCloseDoor();
-                        semMP.acquire();
+                        semMP.release();
                     }
                     MainWindow.updateLabels(buffer);
                     break;
@@ -145,8 +138,7 @@ public class Main {
                     } else {
                         buffer.reset();
                         if (buffer.isDoorOpen()) {
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
+                            semMP.release();
                         }
                         MainWindow.updateLabels(buffer);
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),
@@ -158,7 +150,7 @@ public class Main {
                 case "L": {
                     if (buffer.getEstado() == Estado.Livre && buffer.getModo() == Modos.Usar && !buffer.isDoorOpen()) {
                         if (buffer.getAmmount() > 0) {
-                            moedeiro.cleanMoedeiro();
+                            buffer.cleanMoedeiro();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
                         }
                         buffer.setEstado(Estado.Ocupada);
@@ -177,10 +169,9 @@ public class Main {
                 case "C": {
                     if (buffer.getAmmount() > 0) {
                         if (buffer.isDoorOpen()) {
-                            porta.openOrCloseDoor();
-                            semMP.acquire();
+                            semMP.release();
                         }
-                        moedeiro.cleanMoedeiro();
+                        buffer.cleanMoedeiro();
                         JOptionPane.showMessageDialog(MainWindow.getJanela(),
                                 "Operacao cancelada, dinheiro devolvido.");
                     }

@@ -71,14 +71,7 @@ public class Moedeiro implements ActionListener, Runnable {
                 break;
             case "OK":
                 if (buffer.getEstado() == Estado.Livre && !buffer.isDoorOpen() && buffer.getModo() == Modos.Usar) {
-                    try {
-                        this.buffer.setAmmount(tempAmmount + buffer.getAmmount());
-                        semMM.release();
-                    } catch (IOException e1) {
-                    }
-                    this.tempAmmount = 0;
-                    this.inserido.setText("Inserido: " + this.tempAmmount);
-                    MainWindow.updateLabels(buffer);
+                    semMM.release();
                 }
                 break;
             case "Limpar":
@@ -89,18 +82,20 @@ public class Moedeiro implements ActionListener, Runnable {
 
     }
 
-    public float calculateChange() throws InterruptedException, IOException {
-        float change = this.buffer.getChange();
-        return change;
-    }
-
-    public void cleanMoedeiro() throws InterruptedException, IOException {
-        buffer.cleanMoedeiro();
-    }
-
     @Override
     public void run() {
         this.mostraJanela();
+
+        while (true) {
+            try {
+                semMM.acquire();
+                this.buffer.setAmmount(tempAmmount + buffer.getAmmount());
+                this.tempAmmount = 0;
+                this.inserido.setText("Inserido: " + this.tempAmmount);
+                MainWindow.updateLabels(buffer);
+            } catch (InterruptedException | IOException e) {
+            }
+        }
     }
 
 }
