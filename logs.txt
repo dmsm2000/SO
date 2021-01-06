@@ -1,1 +1,24 @@
-06/01/2021/21:33:07 - Sistema reiniciado....
+06/01/2021/22:25:12 - Sistema iniciou
+06/01/2021/22:25:16 - 10.0 € inseridos
+06/01/2021/22:25:17 - A pressionada
+06/01/2021/22:25:17 - Abriu
+06/01/2021/22:25:20 - F pressionada
+06/01/2021/22:25:21 - 0.0 € inseridos
+06/01/2021/22:25:21 - Moedeiro limpo
+06/01/2021/22:25:21 - Fechou a porta
+06/01/2021/22:25:21 - Estado alterado para: Ocupada
+06/01/2021/22:25:26 - A pressionada
+06/01/2021/22:25:26 - Abriu
+06/01/2021/22:25:34 - Fechou a porta
+06/01/2021/22:25:34 - Estado alterado para: Ocupada
+06/01/2021/22:25:34 - Modo alterado para: Desinfetar
+06/01/2021/22:25:39 - Modo alterado para: Usar
+06/01/2021/22:25:39 - Estado alterado para: Livre
+06/01/2021/22:25:42 - 10.0 € inseridos
+06/01/2021/22:25:43 - A pressionada
+06/01/2021/22:25:43 - Abriu
+06/01/2021/22:25:46 - F pressionada
+06/01/2021/22:25:58 - 0.0 € inseridos
+06/01/2021/22:25:58 - Moedeiro limpo
+06/01/2021/22:25:58 - Fechou a porta
+06/01/2021/22:25:58 - Estado alterado para: Ocupada
