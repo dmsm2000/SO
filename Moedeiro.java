@@ -14,8 +14,8 @@ public class Moedeiro implements ActionListener, Runnable {
     private float tempAmmount;
     private JLabel inserido;
 
-    public Moedeiro(Semaphore semMM, Buffer buffer) {
-        this.semMM = semMM;
+    public Moedeiro(Buffer buffer) {
+        this.semMM = new Semaphore(0);
         this.buffer = buffer;
     }
 

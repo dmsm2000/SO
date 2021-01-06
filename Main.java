@@ -7,13 +7,12 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Semaphore semMT = new Semaphore(0);
-        Semaphore semMM = new Semaphore(0);
         Semaphore semMP = new Semaphore(0);
         Buffer buffer = new Buffer("config");
 
         Teclado teclado = new Teclado(semMT, buffer);
         Porta porta = new Porta(semMP, buffer);
-        Moedeiro moedeiro = new Moedeiro(semMM, buffer);
+        Moedeiro moedeiro = new Moedeiro(buffer);
 
         Thread tt = new Thread(teclado);
         Thread tp = new Thread(porta);
