@@ -135,6 +135,12 @@ public class Main {
                     if (buffer.isDoorOpen() && buffer.getModo() != Modos.Manutencao) {
                         JOptionPane.showMessageDialog(MainWindow.getJanela(), "Cancele a operacao em curso....");
                     } else {
+
+                        if (buffer.getAmmount() > 0) {
+                            JOptionPane.showMessageDialog(MainWindow.getJanela(),
+                                    "Devolvendo: " + String.valueOf(buffer.getAmmount()));
+                        }
+
                         buffer.reset();
                         if (buffer.isDoorOpen()) {
                             semMP.release();

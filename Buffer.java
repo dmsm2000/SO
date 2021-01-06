@@ -150,7 +150,7 @@ public class Buffer {
             List<String> linhas = Files.readAllLines(path);
 
             this.setPrice(Float.parseFloat(linhas.get(0)));
-            this.setTimeToClean((int) Math.ceil(Float.parseFloat(linhas.get(1))));
+            this.setTimeToClean((int) Math.ceil(Float.parseFloat(linhas.get(1))) * 1000);
 
         } catch (IOException e) {
             this.setPrice((float) 5.0);
