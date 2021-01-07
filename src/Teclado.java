@@ -20,12 +20,12 @@ public class Teclado implements ActionListener, Runnable {
         janela = new JFrame("Teclado");
         janela.getContentPane().setLayout(new FlowLayout());
 
-        JButton botaoA = new JButton("Abrir porta");
-        JButton botaoF = new JButton("Fechar porta");
+        JButton botaoA = new JButton("Abrir Porta");
+        JButton botaoF = new JButton("Fechar Porta");
         JButton botaoR = new JButton("Reiniciar");
-        JButton botaoL = new JButton("Limpar casa de banho");
+        JButton botaoL = new JButton("Limpar Casa de Banho");
         JButton botaoC = new JButton("Cancelar");
-        this.comChave = new JRadioButton("Com chave");
+        this.comChave = new JRadioButton("Com Chave");
 
         botaoA.addActionListener(this);
         botaoF.addActionListener(this);
@@ -54,7 +54,7 @@ public class Teclado implements ActionListener, Runnable {
         String action = e.getActionCommand();
 
         switch (action) {
-            case "Abrir porta":
+            case "Abrir Porta":
                 if (!comChave.isSelected()) {
                     try {
                         buffer.setKey("A");
@@ -67,7 +67,7 @@ public class Teclado implements ActionListener, Runnable {
                     }
                 }
                 break;
-            case "Fechar porta":
+            case "Fechar Porta":
                 if (!comChave.isSelected()) {
                     try {
                         buffer.setKey("F");
@@ -89,7 +89,7 @@ public class Teclado implements ActionListener, Runnable {
                     this.comChave.doClick();
                 }
                 break;
-            case "Limpar casa de banho":
+            case "Limpar Casa de Banho":
                 try {
                     buffer.setKey("L");
                 } catch (IOException e1) {

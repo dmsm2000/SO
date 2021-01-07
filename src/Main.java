@@ -61,7 +61,7 @@ public class Main {
                         if ("F".equals(tempKey)) {
 
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Devolvendo: " + String.valueOf(buffer.getChange()));
+                                    "Retire o seu dinheiro: " + String.valueOf(buffer.getChange()));
 
                             buffer.cleanMoedeiro();
                             semMP.release();
@@ -89,23 +89,26 @@ public class Main {
                         } else if ("C".equals(tempKey)) {
                             semMP.release();
                             buffer.cleanMoedeiro();
-                            JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "A devolver o dinheiro, operacao cancelada...");
+
+                            JOptionPane.showMessageDialog(MainWindow.getJanela(), "Retire o seu dinheiro: "
+                                    + String.valueOf(buffer.getChange()) + "€, opreacao cancelada!");
                             MainWindow.updateLabels(buffer);
                         }
 
                     } else {
                         if (buffer.getAmmount() < buffer.getPrice()) {
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Dinheiro insuficiente, devolvendo dinheiro.");
+                                    "Dinheiro insuficiente para abrir a porta a devolver  dinheiro.");
                         } else if (buffer.getModo() != Modos.Usar) {
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Casa de banho nao esta em modo de uso, devolvendo dinheiro.");
+                                    "Casa de banho nao esta em modo de uso, a devolver: "
+                                            + String.valueOf(buffer.getAmmount()));
                         } else if (buffer.getEstado() != Estado.Livre) {
-                            JOptionPane.showMessageDialog(MainWindow.getJanela(), "Ocupada, devolvendo dinheiro.");
+                            JOptionPane.showMessageDialog(MainWindow.getJanela(),
+                                    "Ocupada, A devolver: " + String.valueOf(buffer.getAmmount()));
                         } else if (buffer.getChave() != Chave.Neutra) {
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "Em manutencao, devolvendo dinheiro.");
+                                    "Em manutencao, A devolver: " + String.valueOf(buffer.getAmmount()));
                         }
                         buffer.cleanMoedeiro();
                         MainWindow.updateLabels(buffer);
@@ -118,7 +121,8 @@ public class Main {
                     buffer.setEstado(Estado.Ocupada);
                     buffer.setModo(Modos.Manutencao);
                     if (buffer.getAmmount() > 0) {
-                        JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                        JOptionPane.showMessageDialog(MainWindow.getJanela(),
+                                "A devolver: " + String.valueOf(buffer.getAmmount()) + "inseridos...");
                         buffer.cleanMoedeiro();
                     }
                     if (!buffer.isDoorOpen()) {
@@ -132,7 +136,8 @@ public class Main {
                     buffer.setEstado(Estado.Ocupada);
                     buffer.setModo(Modos.Manutencao);
                     if (buffer.getAmmount() > 0) {
-                        JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                        JOptionPane.showMessageDialog(MainWindow.getJanela(),
+                                "A devolver: " + String.valueOf(buffer.getAmmount()) + "inseridos...");
                         buffer.cleanMoedeiro();
                     }
                     if (buffer.isDoorOpen()) {
@@ -167,7 +172,8 @@ public class Main {
                     if (buffer.getEstado() == Estado.Livre && buffer.getModo() == Modos.Usar && !buffer.isDoorOpen()) {
                         if (buffer.getAmmount() > 0) {
                             buffer.cleanMoedeiro();
-                            JOptionPane.showMessageDialog(MainWindow.getJanela(), "Devolvendo dinheiro inserido...");
+                            JOptionPane.showMessageDialog(MainWindow.getJanela(),
+                                    "A devolver: " + String.valueOf(buffer.getAmmount()) + "inseridos...");
                         }
                         buffer.setEstado(Estado.Ocupada);
                         buffer.setModo(Modos.Desinfetar);
