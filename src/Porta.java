@@ -21,7 +21,7 @@ public class Porta implements Runnable {
     public void mostraJanela() throws InterruptedException {
         janela = new JFrame("Porta");
         janela.getContentPane().setLayout(new FlowLayout());
-        gif.setIcon(new ImageIcon(getClass().getResource("portaFechada.png")));
+        gif.setIcon(new ImageIcon(getClass().getResource("img/portaFechada.png")));
 
         janela.add(gif);
 
@@ -36,8 +36,8 @@ public class Porta implements Runnable {
 
     public void openOrCloseDoor() throws InterruptedException, IOException {
         this.buffer.openOrCloseDoor();
-        this.gif.setIcon(
-                new ImageIcon(getClass().getResource(buffer.isDoorOpen() ? "portaAberta.png" : "portaFechada.png")));
+        this.gif.setIcon(new ImageIcon(
+                getClass().getResource(buffer.isDoorOpen() ? "img/portaAberta.png" : "img/portaFechada.png")));
     }
 
     @Override
