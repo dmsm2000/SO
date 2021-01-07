@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import java.awt.*;
 
+// Esta classe é responsável pela janela que representa o Main
 public class MainWindow {
 
     static JFrame janela;

@@ -18,6 +18,7 @@ public class Buffer {
     private String key;
     private String doc;
 
+    // Este construtor retira alguma informação de um ficheiro de configuração
     public Buffer(String name) throws IOException {
         this.doc = name;
         Path path = Paths.get(doc + ".txt");
@@ -36,6 +37,8 @@ public class Buffer {
         this.key = "";
     }
 
+    // Este construtor não necessita de um ficheiro de configuração,
+    // e é utilizado quando o primeiro construtor falha.
     public Buffer() {
         this.estado = Estado.Livre;
         this.modo = Modos.Usar;

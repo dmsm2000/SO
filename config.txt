@@ -1,2 +1,8 @@
 10
 3
+
+Este ficheiro de texto é um ficheiro de configuração.
+A primeira linha, representa o preço para entrar na casa de banho.
+Já a segunda linha, representa o tempo em segundos que a casa de banho demora a ser limpa.
+Ambas as linhas têm de ser ocupadas obrigatóriamente por um número positivo, caso contrário,
+o programa poderá funcionar de forma indesejada.

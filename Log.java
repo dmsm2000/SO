@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+// Classe responsável por escrever os logs do programa.
+
 public class Log {
 
     public static void writeLog(String msg, boolean opc) throws IOException {

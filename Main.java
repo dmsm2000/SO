@@ -6,32 +6,43 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        Semaphore semMT = new Semaphore(0);
-        Semaphore semMP = new Semaphore(0);
-        Buffer buffer = new Buffer("config");
+        Semaphore semMT = new Semaphore(0); // Semaforo do teclado
+        Semaphore semMP = new Semaphore(0); // Semaforo da Porta
+        Buffer buffer;
+        try {
+            buffer = new Buffer("config"); // tenta instanciar o buffer usando um ficheiro de configuração
+        } catch (IOException e) {
+            buffer = new Buffer(); // Caso seja impossível instancia um buffer padrão
+        }
 
+        // Instancia os objetos necessários
         Teclado teclado = new Teclado(semMT, buffer);
         Porta porta = new Porta(semMP, buffer);
         Moedeiro moedeiro = new Moedeiro(buffer);
 
+        // Instancia as suas respetivas threads
         Thread tt = new Thread(teclado);
         Thread tp = new Thread(porta);
         Thread tm = new Thread(moedeiro);
 
+        // Inicia as threads
         tt.start();
         tp.start();
         tm.start();
 
+        // Mostra a janela do main
         MainWindow.mostrarJanela(buffer);
 
         Log.writeLog("Sistema iniciou", false);
 
+        // Inicia o ciclo principal do programa
         while (true) {
 
-            semMT.acquire();
+            semMT.acquire(); // Aguarda sinal do teclado
 
-            String botao = buffer.getKey();
+            String botao = buffer.getKey(); // Lê a tecla selecionada
 
+            // Decide o que fazer
             switch (botao) {
                 case "A": {
 
@@ -43,7 +54,7 @@ public class Main {
                         String tempKey = "";
 
                         while (!"F".equals(tempKey) && !"C".equals(tempKey)) {
-                            semMT.acquire();
+                            semMT.acquire(); // Aguarda sinal do teclado
                             tempKey = buffer.getKey();
                         }
 
@@ -59,7 +70,7 @@ public class Main {
                             MainWindow.updateLabels(buffer);
 
                             while (!"A".equals(tempKey)) {
-                                semMT.acquire();
+                                semMT.acquire(); // Aguarda sinal do teclado
                                 tempKey = buffer.getKey();
                             }
 
