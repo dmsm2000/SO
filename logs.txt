@@ -1,1 +1,8 @@
-07/01/2021/20:46:26 - Sistema iniciou
+08/01/2021/00:38:17 - Sistema iniciou
+08/01/2021/00:38:19 - 30.0 € inseridos
+08/01/2021/00:38:20 - A pressionada
+08/01/2021/00:38:20 - Abriu
+08/01/2021/00:38:21 - C pressionada
+08/01/2021/00:38:21 - 0.0 € inseridos
+08/01/2021/00:38:21 - Fechou a porta
+08/01/2021/00:38:21 - Moedeiro limpo

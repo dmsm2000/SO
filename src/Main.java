@@ -91,7 +91,7 @@ public class Main {
                             buffer.cleanMoedeiro();
 
                             JOptionPane.showMessageDialog(MainWindow.getJanela(), "Retire o seu dinheiro: "
-                                    + String.valueOf(buffer.getChange()) + "€, opreacao cancelada!");
+                                    + String.valueOf(buffer.getAmmount()) + ", operacao cancelada!");
                             MainWindow.updateLabels(buffer);
                         }
 
@@ -171,9 +171,9 @@ public class Main {
                 case "L": {
                     if (buffer.getEstado() == Estado.Livre && buffer.getModo() == Modos.Usar && !buffer.isDoorOpen()) {
                         if (buffer.getAmmount() > 0) {
-                            buffer.cleanMoedeiro();
                             JOptionPane.showMessageDialog(MainWindow.getJanela(),
-                                    "A devolver: " + String.valueOf(buffer.getAmmount()) + "inseridos...");
+                                    "A devolver: " + String.valueOf(buffer.getAmmount()) + " inseridos...");
+                            buffer.cleanMoedeiro();
                         }
                         buffer.setEstado(Estado.Ocupada);
                         buffer.setModo(Modos.Desinfetar);

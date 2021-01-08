@@ -91,7 +91,9 @@ public class Teclado implements ActionListener, Runnable {
                 break;
             case "Limpar Casa de Banho":
                 try {
-                    buffer.setKey("L");
+                    if (!comChave.isSelected()) {
+                        buffer.setKey("L");
+                    }
                 } catch (IOException e1) {
                 }
                 break;

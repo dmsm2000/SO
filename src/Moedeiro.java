@@ -28,7 +28,7 @@ public class Moedeiro implements ActionListener, Runnable {
         JButton botao10 = new JButton("10");
         JButton botaoOK = new JButton("OK");
         JButton botaoClear = new JButton("Limpar");
-        this.inserido = new JLabel("Inserido: ");
+        this.inserido = new JLabel("Aperte OK para inserir a quantia: ");
 
         botao1.addActionListener(this);
         botao5.addActionListener(this);
@@ -59,15 +59,15 @@ public class Moedeiro implements ActionListener, Runnable {
         switch (action) {
             case "1":
                 this.tempAmmount += 1;
-                this.inserido.setText("Inserido: " + this.tempAmmount);
+                this.inserido.setText("Aperte OK para inserir a quantia: " + this.tempAmmount);
                 break;
             case "5":
                 this.tempAmmount += 5;
-                this.inserido.setText("Inserido: " + this.tempAmmount);
+                this.inserido.setText("Aperte OK para inserir a quantia: " + this.tempAmmount);
                 break;
             case "10":
                 this.tempAmmount += 10;
-                this.inserido.setText("Inserido: " + this.tempAmmount);
+                this.inserido.setText("Aperte OK para inserir a quantia: " + this.tempAmmount);
                 break;
             case "OK":
                 if (buffer.getEstado() == Estado.Livre && !buffer.isDoorOpen() && buffer.getModo() == Modos.Usar) {
@@ -76,7 +76,7 @@ public class Moedeiro implements ActionListener, Runnable {
                 break;
             case "Limpar":
                 this.tempAmmount = 0;
-                this.inserido.setText("Inserido: " + this.tempAmmount);
+                this.inserido.setText("Aperte OK para inserir a quantia: " + this.tempAmmount);
                 break;
         }
 
@@ -91,7 +91,7 @@ public class Moedeiro implements ActionListener, Runnable {
                 semMM.acquire();
                 this.buffer.setAmmount(tempAmmount + buffer.getAmmount());
                 this.tempAmmount = 0;
-                this.inserido.setText("Inserido: " + this.tempAmmount);
+                this.inserido.setText("Aperte OK para inserir a quantia: " + this.tempAmmount);
                 MainWindow.updateLabels(buffer);
             } catch (InterruptedException | IOException e) {
             }
